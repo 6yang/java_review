@@ -1,4 +1,4 @@
-package com.juc.concurrent;
+package com.yang.sh.juc;
 
 
 import java.util.concurrent.CountDownLatch;

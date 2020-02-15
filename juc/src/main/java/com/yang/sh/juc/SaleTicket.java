@@ -1,4 +1,4 @@
-package com.juc.concurrent;
+package com.yang.sh.juc;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -21,6 +21,7 @@ class Ticket { //资源类
         }
     }
 }
+
 /*
  * 题目：三个售票员卖出30张票
  * 多线程的企业级套路加模板

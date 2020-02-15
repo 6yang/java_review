@@ -1,7 +1,7 @@
-package com.juc.concurrent;
+package com.yang.sh.juc;
 
-        import java.util.concurrent.BrokenBarrierException;
-        import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.BrokenBarrierException;
+import java.util.concurrent.CyclicBarrier;
 
 public class CyclicBarrierDemo {
     public static void main(String[] args) {

@@ -1,33 +1,54 @@
-package com.juc.concurrent;
+package com.yang.sh.juc;
 
-class AirConditioner{ //资源类
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+class AirConditioner1{ //资源类
 
     private  int num = 0;
+    private  Lock lock = new ReentrantLock();
+    private Condition condition = lock.newCondition();
 
-    public synchronized void increment() throws InterruptedException {
-        //1 判断
-        while(num!=0){
-            this.wait();
+    public void increment() throws InterruptedException {
+        lock.lock();
+        try {
+            //1 判断
+            while(num!=0){
+                condition.await();
+            }
+            //2 干活
+            num++;
+            System.out.println(Thread.currentThread().getName()+num);
+            //3 通知
+            condition.signalAll();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            lock.unlock();
         }
-        //2 干活
-        num++;
-        System.out.println(Thread.currentThread().getName()+num);
-        //3 通知
-        this.notifyAll();
     }
 
-    public synchronized void decrement() throws InterruptedException {
-        //1 判断
-        while(num ==0){
-            this.wait();
+    public void decrement() throws InterruptedException {
+        lock.lock();
+        try {
+            //1 判断
+            while(num ==0){
+                condition.await();
+            }
+            //2 干活
+            num--;
+            System.out.println(Thread.currentThread().getName()+num);
+            //3 通知
+            condition.signalAll();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            lock.unlock();
         }
-        //2 干活
-        num--;
-        System.out.println(Thread.currentThread().getName()+num);
-        //3 通知
-        this.notifyAll();
     }
 }
+
 /*
 * 题目
 * 现在两个线程，可以操作初始值为0的一个变量
@@ -38,7 +59,7 @@ class AirConditioner{ //资源类
 * 2 判断、 通知 、干活
 * 3 多线程交互中 ，必须要防止多线程虚假唤醒，也记 （判断只用while 不用if ）
 * */
-public class ThreadWaitNotifyDemo {
+public class ThreadWaitNotifyDemo1 {
     public static void main(String[] args) {
         AirConditioner airConditioner = new AirConditioner();
         new Thread(()->{

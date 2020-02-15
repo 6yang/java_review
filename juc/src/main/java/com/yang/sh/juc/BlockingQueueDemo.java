@@ -1,6 +1,4 @@
-package com.juc.concurrent;
-
-import jdk.nashorn.internal.objects.annotations.Getter;
+package com.yang.sh.juc;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;

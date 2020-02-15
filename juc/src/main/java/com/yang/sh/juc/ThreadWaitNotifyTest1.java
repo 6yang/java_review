@@ -1,4 +1,4 @@
-package com.juc.concurrent;
+package com.yang.sh.juc;
 
 
 
@@ -49,6 +49,7 @@ class TestResource{
     }
 
 }
+
 /*
 * 两个线程，一个线程打印1-52，另一个打印字母A-Z打印顺序为12A34B...5152Z,
 *要求用线程间通信

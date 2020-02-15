@@ -1,4 +1,4 @@
-package com.juc.concurrent;
+package com.yang.sh.juc;
 
 class TestResource2{
     private int tag =1 ;
