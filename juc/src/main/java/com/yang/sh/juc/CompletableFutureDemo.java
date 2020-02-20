@@ -17,7 +17,7 @@ public class CompletableFutureDemo {
             int age = 10/0;
             return 1024;
         });
-        
+
         Integer i = completableFuture1.whenComplete((t, u) -> {
             System.out.println("*********t:" + t);
             System.out.println("*********u:" + u);
