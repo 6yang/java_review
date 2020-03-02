@@ -28,7 +28,7 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int [] arr = {2,32,22,44,2222,32,9,4,33};
+        int [] arr = {3,2,3};
         int[] ints = quickSort(arr, 0, arr.length - 1);
         for (int i = 0; i < ints.length; i++) {
             System.out.print(ints[i]+" ");

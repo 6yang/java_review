@@ -2,7 +2,7 @@ package com.yang.jianzhi;
 
 import java.util.HashMap;
 
-public class M_07_buildTree {
+public class M_07_buildTree_x {
 
     public class TreeNode {
       int val;
