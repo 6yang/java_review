@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class E_62_lastRemaining {
-    
+
     //超时
     public static int lastRemaining_1(int n, int m) {
         LinkedList<Integer> list = new LinkedList<>();
