@@ -15,6 +15,8 @@ public class SpinLock {
         while (!atomicReference.compareAndSet(null,thread)){
 
         }
+        System.out.println(Thread.currentThread().getName()+"\t 获得了");
+
     }
     public void unMyLock(){
         Thread thread = Thread.currentThread();
