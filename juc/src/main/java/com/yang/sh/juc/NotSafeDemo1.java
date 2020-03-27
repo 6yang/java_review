@@ -7,6 +7,7 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CopyOnWriteArraySet;
+import java.util.concurrent.ThreadPoolExecutor;
 
 /*
 * 题目：请举例集合是不安全的
@@ -27,14 +28,15 @@ import java.util.concurrent.CopyOnWriteArraySet;
 * */
 public class NotSafeDemo1 {
     public static void main(String[] args) {
+        NotSafeDemo1.ListNotSafe();
         //构造一个空的 HashMap ，默认初始容量（16）和默认负载系数（0.75）
-        Map<String,String> map = new ConcurrentHashMap<>();//Collections.synchronizedMap(new HashMap<>());//new HashMap<>();
+      /*  Map<String,String> map = new ConcurrentHashMap<>();//Collections.synchronizedMap(new HashMap<>());//new HashMap<>();
         for (int i = 0; i < 30; i++) {
             new Thread(() -> {
                 map.put(Thread.currentThread().getName(),UUID.randomUUID().toString().substring(0,8));
                 System.out.println(map);
             }, String.valueOf(i)).start();
-        }
+        }*/
     }
 
     private static void SetNotSafe() {
@@ -55,8 +57,9 @@ public class NotSafeDemo1 {
         for (int i = 0; i < 30; i++) {
             new Thread(()->{
                list.add(UUID.randomUUID().toString().substring(0,8));
-                System.out.println(list);
+                System.out.println(list +""+ list.size());
             },String.valueOf(i)).start();
+
         }
     }
 
