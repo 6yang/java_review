@@ -47,6 +47,7 @@ public class T_mergeKLists {
         }
         return lists[0];
     }
+
     public ListNode mergeTwoLists(ListNode l,ListNode r){
         if(l == null && r == null) return null;
         ListNode head = new ListNode(0);

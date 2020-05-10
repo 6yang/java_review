@@ -1,9 +1,5 @@
 package com.yang.jianzhi;
 
-import com.yang.Sort.QuickSort;
-
-import java.util.Collections;
-
 public class M_56_II_singleNumbers {
     public int singleNumber(int[] nums) {
 
